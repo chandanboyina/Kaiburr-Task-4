@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  # The MongoDB service name acts as the hostname within the cluster network
+  SPRING_DATA_MONGODB_URI: "mongodb://mongodb-service:27017/kaiburr_db"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kaiburr-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kaiburr-app
+  template:
+    metadata:
+      labels:
+        app: kaiburr-app
+    spec:
+      serviceAccountName: kaiburr-app-sa # Add this line
+      containers:
+        - name: kaiburr-app
+          image: chandanboyina/kaiburr-app:1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATA_MONGODB_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: SPRING_DATA_MONGODB_URI
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kaiburr-app-service
+spec:
+  selector:
+    app: kaiburr-app
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30007
