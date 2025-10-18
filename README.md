@@ -7,15 +7,16 @@ This repository contains the Continuous Integration/Continuous Delivery (CI/CD) 
 This pipeline runs on the Java Spring Boot application (Task 1).
 
 ### Functionality:
+
 * Code Build (CI): Compiles the Java code and creates the executable JAR file using Maven.
-
 * Docker Build & Push (CD): Builds the Docker image and pushes it to Docker Hub, making it available for Kubernetes deployment.
-
-* ![Backend1](https://github.com/chandanboyina/Kaiburr-Task-4/blob/main/backemd1.jpeg)
-
-* ![Backend1](https://github.com/chandanboyina/Kaiburr-Task-4/blob/main/backend%202.jpeg)
-
 * URL: https://github.com/chandanboyina/Kaiburr-Task-2/actions
+
+ ![Backend1](https://github.com/chandanboyina/Kaiburr-Task-4/blob/main/backemd1.jpeg)
+
+ ![Backend1](https://github.com/chandanboyina/Kaiburr-Task-4/blob/main/backend%202.jpeg)
+
+
 
 ### Setup Details
 
