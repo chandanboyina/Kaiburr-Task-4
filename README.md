@@ -3,8 +3,11 @@
 This repository contains the Continuous Integration/Continuous Delivery (CI/CD) pipeline configuration for the application built in Tasks 1 and 3, using GitHub Actions.
 
 Backend: https://github.com/chandanboyina/Kaiburr-Task-1
+
 Frontend: https://github.com/chandanboyina/Kaiburr-Task-3
+
 Kubernates: https://github.com/chandanboyina/Kaiburr-Task-2
+
 
 ## Backend CI/CD Pipeline (backend-ci.yml)
 
